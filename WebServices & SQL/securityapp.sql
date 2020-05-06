@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2020 a las 21:54:04
+-- Tiempo de generación: 06-05-2020 a las 21:45:18
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.30
 
@@ -28,12 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `reportes` (
-  `noReporte` bigint(20) UNSIGNED NOT NULL,
+  `idreporte` int(11) NOT NULL,
   `ubicacion` text NOT NULL,
   `fecha` date NOT NULL,
   `descripcion` text NOT NULL,
   `Titulo` text NOT NULL,
-  `puntuacion` int(11) NOT NULL
+  `puntuacion` int(11) NOT NULL,
+  `corrUsr` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -45,7 +46,7 @@ CREATE TABLE `reportes` (
 CREATE TABLE `usuarios` (
   `foto` text NOT NULL,
   `nombre` text NOT NULL,
-  `correo` text NOT NULL,
+  `correo` varchar(30) NOT NULL,
   `fechaNac` date NOT NULL,
   `sexo` char(1) NOT NULL,
   `telefono` varchar(10) NOT NULL
@@ -59,7 +60,14 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  ADD UNIQUE KEY `noReporte` (`noReporte`);
+  ADD PRIMARY KEY (`idreporte`),
+  ADD KEY `corrUsr` (`corrUsr`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`correo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -69,7 +77,17 @@ ALTER TABLE `reportes`
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `noReporte` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idreporte` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`corrUsr`) REFERENCES `usuarios` (`correo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
