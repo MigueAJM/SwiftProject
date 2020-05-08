@@ -11,10 +11,11 @@ import GoogleMaps
 
 
 class ViewControllerMapa: UIViewController {
-
-      
+             
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
        self.view.addSubview(mapView)
@@ -27,5 +28,15 @@ class ViewControllerMapa: UIViewController {
        marker.map = mapView
         
     }
+    
+    
+    func alerta(title: String, message: String){
+           //Crea una alerta
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           //Agrega un boton
+           alert.addAction(UIAlertAction(title: "Aceptar",style: UIAlertAction.Style.default, handler: nil))
+           //Muestra la alerta
+           self.present(alert, animated: true, completion: nil)
+       }
       
 }
