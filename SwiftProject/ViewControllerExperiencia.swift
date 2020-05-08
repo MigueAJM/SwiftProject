@@ -15,7 +15,7 @@ import CoreLocation
 class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
     
     var ubicacion: String = ""
-    var fecha: Date = Date()
+    //var fecha: Date = Date()
     let dateFormatter = DateFormatter()
     var fechaBDD: String = ""
     
@@ -49,16 +49,16 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var ubicacion = ""
-        //var fecha: Date
+       // var fecha: Date
        
         
         for currentLocation in locations {
             ubicacion = "\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)"
-             //fecha = currentLocation.timestamp
+            var fecha: Date = currentLocation.timestamp
             fechaBDD = "\(dateFormatter.string(from: fecha))"
             //fecha = currentLocation.timestamp
-            print("\(index): \(currentLocation)")
-            //print("\(currentLocation.timestamp)")
+            //print("\(index): \(currentLocation)")
+            print("\(currentLocation.timestamp)")
             
             //print("\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)")
             lblUbicacion.text = ubicacion
