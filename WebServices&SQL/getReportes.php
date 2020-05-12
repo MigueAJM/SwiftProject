@@ -8,7 +8,7 @@ $Cn = mysqli_connect("localhost", "root", "", "securityapp") or die("server no e
 mysqli_set_charset($Cn, "utf8");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $result = mysqli_query($Cn, "SELECT idreporte,ubicacion,fecha,descripcion,Titulo,puntuacion,corrUsr FROM reportes ORDER BY idreporte");
+    $result = mysqli_query($Cn, "SELECT idreporte,ubicacion,latitud,longitud,fecha,descripcion,Titulo,puntuacion,corrUsr FROM reportes ORDER BY idreporte");
     if (!empty($result)) {
         if (mysqli_num_rows($result) > 0) {
             while ($res = mysqli_fetch_array($result)) {
@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $reporte["message"] = "reporte encontrado";
                 $reporte["idreporte"] = $res["idreporte"];
                 $reporte["ubicacion"] = $res["ubicacion"];
+                $reporte["latitud"] = $res["latitud"];
+                $reporte["longitud"] = $res["longitud"];
                 $reporte["fecha"] = $res["fecha"];
                 $reporte["descripcion"] = $res["descripcion"];
                 $reporte["Titulo"] = $res["Titulo"];

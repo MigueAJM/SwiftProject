@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2020 a las 21:13:58
+-- Tiempo de generación: 12-05-2020 a las 21:44:51
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.30
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `reportes` (
   `idreporte` int(11) NOT NULL,
   `ubicacion` text NOT NULL,
+  `latitud` text NOT NULL,
+  `longitud` text NOT NULL,
   `fecha` text NOT NULL,
   `descripcion` text NOT NULL,
   `Titulo` text NOT NULL,
@@ -41,9 +43,9 @@ CREATE TABLE `reportes` (
 -- Volcado de datos para la tabla `reportes`
 --
 
-INSERT INTO `reportes` (`idreporte`, `ubicacion`, `fecha`, `descripcion`, `Titulo`, `puntuacion`, `corrUsr`) VALUES
-(3, 'defwefewfewfwef', '2020/05/12', 'Esta es una prueba mamamlona', 'PRUEBA', 5, 'prueba@hotmail.com'),
-(4, 'Celaya', 'Hoy', 'frferferfefefefefefefeefefefe', 'Prueba 2', 5, 'prueba2@hotmail.com');
+INSERT INTO `reportes` (`idreporte`, `ubicacion`, `latitud`, `longitud`, `fecha`, `descripcion`, `Titulo`, `puntuacion`, `corrUsr`) VALUES
+(3, 'defwefewfewfwef', '', '', '2020/05/12', 'Esta es una prueba mamamlona', 'PRUEBA', 5, 'prueba@hotmail.com'),
+(4, 'Celaya', '', '', 'Hoy', 'frferferfefefefefefefeefefefe', 'Prueba 2', 5, 'prueba2@hotmail.com');
 
 -- --------------------------------------------------------
 

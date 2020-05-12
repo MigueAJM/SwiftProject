@@ -18,14 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode($response);
     } else {
         $ubicacion = $objArray['ubicacion'];
+        $latitud = $objArray['latitud'];
+        $longitud = $objArray['longitud'];
         $fecha = $objArray['fecha'];
         $descripcion = $objArray['descripcion'];
         $titulo = $objArray['Titulo'];
         $puntuacion = $objArray['puntuacion'];
         $correoUsr = $objArray['correoUsr'];
         
-        $result = mysqli_query($Cn, "INSERT INTO reportes(ubicacion,fecha,descripcion,Titulo,puntuacion,CorrUsr) values
-         ('$ubicacion','$fecha','$descripcion','$titulo',$puntuacion,'$correoUsr')");
+        $result = mysqli_query($Cn, "INSERT INTO reportes(ubicacion,latitud,longitud,fecha,descripcion,Titulo,puntuacion,CorrUsr) values
+         ('$ubicacion','$latitud','$longitud','$fecha','$descripcion','$titulo',$puntuacion,'$correoUsr')");
         //$idprod = mysqli_insert_id($Cn);
         if ($result) {
             $reporte["success"] = 200; // El success=200 es que encontro eñ reporte
