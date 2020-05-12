@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $descripcion = $objArray['descripcion'];
         $titulo = $objArray['Titulo'];
         $puntuacion = $objArray['puntuacion'];
-        $correoUsr = $objArray['corrUsr'];
+        $correoUsr = $objArray['correoUsr'];
         
         $result = mysqli_query($Cn, "INSERT INTO reportes(ubicacion,fecha,descripcion,Titulo,puntuacion,CorrUsr) values
-         ('$ubicacion',$fecha,'$descripcion',$titulo,$puntuacion,'$correoUsr')");
+         ('$ubicacion','$fecha','$descripcion','$titulo',$puntuacion,'$correoUsr')");
         //$idprod = mysqli_insert_id($Cn);
         if ($result) {
             $reporte["success"] = 200; // El success=200 es que encontro eñ reporte

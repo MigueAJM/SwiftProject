@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         array_push($response, $reporte);
         echo json_encode($response);
     } else {
-        $idProd = $objArray['idreporte'];
-        $result = mysqli_query($Cn, "DELETE FROM reportes WHERE idreporte=$idreporte");
+        $idRep = $objArray['idreporte'];
+        $result = mysqli_query($Cn, "DELETE FROM reportes WHERE idreporte=$idRep");
         if ($result) {
             $reporte["success"] = 200; // El success=200 es que encontro eñ reporte
             $reporte["message"] = "reporte Eliminado";
