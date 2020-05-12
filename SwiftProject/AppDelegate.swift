@@ -2,20 +2,24 @@
 //  AppDelegate.swift
 //  SwiftProject
 //
-//  Created by Miguel Angel Jimenez Melendez on 4/23/20.
+//  Created by Miguel Angel Jimenez Melendez & Francisco Lara López on 4/23/20.
 //  Copyright © 2020 Miguel Angel Jimenez Melendez. All rights reserved.
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyDwT3-_iVm20W13215Sp814TwsTqsM2GFU")
+        GMSPlacesClient.provideAPIKey("AIzaSyDwT3-_iVm20W13215Sp814TwsTqsM2GFU")
         return true
     }
 
