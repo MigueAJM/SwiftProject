@@ -9,9 +9,15 @@
 import UIKit
 
 class TableViewControllerExp: UITableViewController {
-
+    
+    @IBOutlet var tabla: UITableView!
+    
+    var reportes = [Reporte]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabla.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,23 +30,27 @@ class TableViewControllerExp: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return reportes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celda") as! TableViewCellExp
+        let repo : Reporte
+        repo = reportes[indexPath.row]
+        cell.fecha.text = repo.fecha
+        cell.numReporte.text = "No. Reporte: \(String(repo.idreporte!))"
+        cell.titulo.text = repo.titulo
 
-        // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -9,7 +9,11 @@
 import UIKit
 
 class TableViewCellExp: UITableViewCell {
-
+    @IBOutlet weak var fecha: UILabel!
+    @IBOutlet weak var numReporte: UILabel!
+    @IBOutlet weak var titulo: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
