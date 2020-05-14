@@ -18,8 +18,8 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
 
     
     var ubicacion: String = ""
-    var latitud: String = ""
-    var longitud: String = ""
+    var latitud: Double = 0.0
+    var longitud: Double = 0.0
     let dateFormatter = DateFormatter()
     var fechaBDD: String = ""
     var correoU: String = "prueba@hotmail.com"
@@ -173,8 +173,8 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
         
         for currentLocation in locations {
             ubicacion = "\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)"
-            latitud = "\(currentLocation.coordinate.latitude)"
-            longitud = "\(currentLocation.coordinate.longitude)"
+            latitud = (currentLocation.coordinate.latitude)
+            longitud = (currentLocation.coordinate.longitude)
             var fecha: Date = currentLocation.timestamp
             fechaBDD = "\(dateFormatter.string(from: fecha))"
             //fecha = currentLocation.timestamp
@@ -183,8 +183,8 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
             
             print("\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)")
             //lblUbicacion.text = ubicacion
-            lblLati.text = latitud
-            lblLong.text = longitud
+            lblLati.text = String(latitud)
+            lblLong.text = String(longitud)
             lblFecha.text = "\(dateFormatter.string(from: fecha))"
                     print("\(dateFormatter.string(from: fecha))")
         }
